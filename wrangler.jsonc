@@ -6,10 +6,22 @@
 	"name": "kami",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"compatibility_flags": ["nodejs_compat"],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".open-next/assets"
+	},
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "3a478ab76f25443f92771794dd440605",
+			"localConnectionString": "mysql://kami:zmnRHsNwzXpZkGH4@1.12.227.13:3306/kami"
+		}
+	],
+	"vars": {
+		"JWT_SECRET": "G01FtriZL6RVlDfTRuudLdzzgswMo4uo9ZctS01oYIQ=",
+		"DEFAULT_ADMIN_USERNAME": "admin",
+		"DEFAULT_ADMIN_PASSWORD": "admin123"
 	},
 	"observability": {
 		"enabled": true

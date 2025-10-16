@@ -12,15 +12,142 @@
 	--font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+/* 亮色主题（默认） */
+body {
+	background: #f9fafb;
+	color: #111827;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 暗色主题 */
+.dark body {
+	background: #111827;
+	color: #f9fafb;
+}
+
+/* 输入框样式 */
+input, textarea, select {
+	background-color: #ffffff !important;
+	color: #111827 !important;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark input, 
+.dark textarea, 
+.dark select {
+	background-color: #1f2937 !important;
+	color: #f9fafb !important;
+	border-color: #374151 !important;
+}
+
+input::placeholder, textarea::placeholder {
+	color: #9ca3af;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+	color: #6b7280;
+}
+
+/* 修复自动填充时的文字颜色问题 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+	-webkit-text-fill-color: #111827 !important;
+	-webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover,
+.dark textarea:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill:active {
+	-webkit-text-fill-color: #f9fafb !important;
+	-webkit-box-shadow: 0 0 0 1000px #1f2937 inset !important;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 链接样式 */
+a {
+	color: #4f46e5;
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: #4338ca;
+}
+
+.dark a {
+	color: #818cf8;
+}
+
+.dark a:hover {
+	color: #a5b4fc;
+}
+
+/* Checkbox和radio样式 */
+input[type="checkbox"],
+input[type="radio"] {
+	background-color: #ffffff !important;
+	border-color: #d1d5db !important;
+}
+
+.dark input[type="checkbox"],
+.dark input[type="radio"] {
+	background-color: #374151 !important;
+	border-color: #4b5563 !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+	background-color: #4f46e5 !important;
+	border-color: #4f46e5 !important;
+}
+
+.dark input[type="checkbox"]:checked,
+.dark input[type="radio"]:checked {
+	background-color: #818cf8 !important;
+	border-color: #818cf8 !important;
+}
+
+/* Focus状态确保可见性 */
+input:focus,
+textarea:focus,
+select:focus {
+	outline: 2px solid #4f46e5 !important;
+	outline-offset: 2px;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+	outline: 2px solid #818cf8 !important;
+	outline-offset: 2px;
+}
+
+/* 动画效果 */
+@keyframes shake {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		transform: translateX(-4px);
+	}
+	20%, 40%, 60%, 80% {
+		transform: translateX(4px);
 	}
 }
 
-body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+.animate-shake {
+	animation: shake 0.5s ease-in-out;
 }
